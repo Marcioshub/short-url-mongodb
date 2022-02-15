@@ -73,15 +73,14 @@ export default function Home() {
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
           lineHeight={"110%"}
         >
-          Meeting scheduling{" "}
+          Create Short Urls!{" "}
           <Text as={"span"} color={"orange.400"}>
             made easy
           </Text>
         </Heading>
         <Text color={"gray.500"} maxW={"3xl"}>
-          Never miss a meeting. Never be late for one too. Keep track of your
-          meetings and receive smart reminders in appropriate times. Read your
-          smart “Daily Agenda” every morning.
+          Enter those long urls you need to send someone below and get a much
+          shorter version.
         </Text>
         <Stack spacing={6} direction={"row"}>
           <Input
