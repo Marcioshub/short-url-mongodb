@@ -1,20 +1,46 @@
 import {
   Box,
-  Container,
-  Heading,
   SimpleGrid,
   Icon,
   Text,
   Stack,
-  HStack,
-  VStack,
+  Flex,
+  Container,
+  Heading,
   Button,
   Center,
 } from "@chakra-ui/react";
-import { CheckIcon } from "@chakra-ui/icons";
+import {
+  FcAssistant,
+  FcDonate,
+  FcInTransit,
+  FcCheckmark,
+} from "react-icons/fc";
+import { FaCheck } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link as ReactLink } from "react-router-dom";
+
+const Feature = ({ title, text, icon }) => {
+  return (
+    <Stack>
+      <Flex
+        w={16}
+        h={16}
+        align={"center"}
+        justify={"center"}
+        color={"white"}
+        rounded={"full"}
+        bg={"gray.100"}
+        mb={1}
+      >
+        {icon}
+      </Flex>
+      <Text fontWeight={600}>{title}</Text>
+      <Text color={"gray.600"}>{text}</Text>
+    </Stack>
+  );
+};
 
 export default function PageNotFound() {
   const [urls, setUrls] = useState([]);
@@ -50,29 +76,22 @@ export default function PageNotFound() {
             width="200px"
             as={ReactLink}
             to="/"
-            // onClick={openModal}
-            // disabled={url === ""}
           >
             Back to home page
           </Button>
         </Center>
       </Stack>
-
-      <Container maxW={"6xl"} mt={10}>
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10}>
-          {urls.map((u, i) => (
-            <HStack key={i} align={"top"}>
-              <Box color={"green.400"} px={2}>
-                <Icon as={CheckIcon} />
-              </Box>
-              <VStack align={"start"}>
-                <Text fontWeight={600}>{u.short}</Text>
-                <Text color={"gray.600"}>{u.original}</Text>
-              </VStack>
-            </HStack>
-          ))}
-        </SimpleGrid>
-      </Container>
+      <br />
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+        {urls.map((u, i) => (
+          <Feature
+            key={i}
+            icon={<Icon as={FcCheckmark} w={10} h={10} />}
+            title={u.short}
+            text={u.original}
+          />
+        ))}
+      </SimpleGrid>
     </Box>
   );
 }

@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/r/:url" element={<Redirect />} />
+        <Route path="/u/:url" element={<Redirect />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>

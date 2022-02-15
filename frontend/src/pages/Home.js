@@ -39,7 +39,7 @@ export default function Home() {
 
     if (shortenUrl) {
       console.log(shortenUrl);
-      setShortUrl("http://localhost:3000/r/" + shortenUrl);
+      setShortUrl(process.env.REACT_APP_FRONTEND + "/u/" + shortenUrl);
     }
   }
 
