@@ -85,7 +85,7 @@ export default function Home() {
         <Stack spacing={6} direction={"row"}>
           <Input
             px={6}
-            placeholder="Basic usage"
+            placeholder="Url..."
             onChange={(e) => setUrl(e.target.value)}
           />
           <Button
